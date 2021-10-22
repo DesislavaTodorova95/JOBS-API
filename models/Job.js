@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const JobSchema = new mongoose.Schema({
+const JobSchema = new mongoose.Schema(
+    {
     company:{
  type: String,
- required:[true, 'please provide a company name'];
+ required:[true, 'please provide a company name'],
  maxLength: 50
     },
     position:{
@@ -21,5 +22,8 @@ const JobSchema = new mongoose.Schema({
         required:[true, 'Please provide user'],
     }
 
-}, {timestamps:true})
+}, 
+{timestamps: true}
+)
 
+module.exports= mongoose.model('Job', JobSchema);
